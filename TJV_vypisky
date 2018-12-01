@@ -55,3 +55,13 @@ https://search.maven.org/
 prace s datem
 LocalDateTime
 v EE spis java.util.Date (LocalDateTime casto neni jeste implementovana)
+
+--- 
+rozhrani Throwable
+ma dva potomky - Error (systemove chyby), Exception (vyjimky)
+Exception ma spoustu potomku, mj. RuntimeException
+
+kdyz implementuju metodu, co vyhazuje vyjimku, jsou dve moznosti:
+1. try-catch (chci osetrit vyjimku)
+2. throws FileNotFoundException /napr./ (nechci osetrit vyjimku)
+

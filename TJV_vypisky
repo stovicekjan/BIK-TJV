@@ -31,7 +31,8 @@ interface = abstraktni trida s dalsimi vlastnostmi
 - vsechny metody jsou public abstract, tudiz to tam nemusime psat
 - muzeme dedit jen z jedne tridy, ale z vice interfacu
 
-
+funkcionalni interface - ma presne jednu abstraktni metodu
+- pak lze pouzit lambda vyraz
 
 ----
 DB
@@ -64,4 +65,16 @@ Exception ma spoustu potomku, mj. RuntimeException
 kdyz implementuju metodu, co vyhazuje vyjimku, jsou dve moznosti:
 1. try-catch (chci osetrit vyjimku)
 2. throws FileNotFoundException /napr./ (nechci osetrit vyjimku)
+
+---
+OptionalDouble
+- wrapper kolem hodnoty, ktera muze a nemusi byt definovana
+
+
+
+---
+
+Semestralka
+- DB s 3 entitami, aspon jeden vztah M:N (tedy celkem 4 tabulky)
+
 

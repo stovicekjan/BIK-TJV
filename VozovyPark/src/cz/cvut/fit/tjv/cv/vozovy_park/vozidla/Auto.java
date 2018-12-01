@@ -1,6 +1,6 @@
 package cz.cvut.fit.tjv.cv.vozovy_park.vozidla;
 
-public class Auto extends MotoroveVozidlo {
+public class Auto extends MotoroveVozidlo implements Osobni {
     private final int pocetOsob;
 
     public Auto(int pocetOsob, int kapacitaNadrze, double spotreba) {
@@ -12,6 +12,7 @@ public class Auto extends MotoroveVozidlo {
         return co <= pocetOsob;
     }
 
+    @Override
     public int getPocetOsob() {
         return pocetOsob;
     }

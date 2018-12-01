@@ -39,4 +39,7 @@ v netbeans: Serivces - Databases - Drivers - Oracle Thin - (RMB) customize
 tam pridat ojdbc.jar ze stranek oracle 
 prihlaseni k oracle.fit.cvut.cz pomoci pocatecniho sys hesla (profile.fit.cvut.cz)
 
-
+---
+snapshot
+- kdyz to bude oznacene jako snapshot, bude maven vzdy stahovat novejsi verzi
+- kdyz ne, nebude kontrolovat, zda existuje novejsi verze

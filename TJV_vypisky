@@ -84,5 +84,17 @@ kouknout na
 - JNDI - jmenna sluzba (abychom na urovni apl. serveru neresili, kam presne se pripojovat, ale odkazovali se jen na nazev pripojeni)
 			- hezky popsane v prezentaci vcetne kodu
 			
+----
 
+Glassfish
+- connection pool
+		- databazove pripojeni je drahe - neni idealni byt pripojeny furt (zere to resources serveru)
+		- neni dobre se pripojovat pokazde znova - je to pomale
+		connection pool - mame nekolik volnych spojeni, ktere neuzavreme, ale jen vratime, kdyz ukoncime praci s DB
+		
+ojdbc7.jar je potreba dat do glassfish5/glassfish/domains/domain1/lib
+new connection pool
+- na glassfish: resources - JDBC - JDBC connection pools - New
+ResourceType: javax.sql.DataSource
+Database Driver Vendor: Oracle
 

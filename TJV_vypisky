@@ -43,3 +43,15 @@ prihlaseni k oracle.fit.cvut.cz pomoci pocatecniho sys hesla (profile.fit.cvut.c
 snapshot
 - kdyz to bude oznacene jako snapshot, bude maven vzdy stahovat novejsi verzi
 - kdyz ne, nebude kontrolovat, zda existuje novejsi verze
+- tato verze nesouvisi s verzi v gitu
+
+---
+pom - project object model
+
+https://search.maven.org/
+
+---
+
+prace s datem
+LocalDateTime
+v EE spis java.util.Date (LocalDateTime casto neni jeste implementovana)

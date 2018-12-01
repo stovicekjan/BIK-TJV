@@ -1,0 +1,42 @@
+JSR = specifikace
+JCP = Java Community Process - sdruzeni stojici za specifikacemi
+
+
+
+Classes
+public - pouzitelne z kazde metody z celeho programu
+v souboru muze byt jen jedna public class
+
+protected - pouzitelne ze stejne tridy nebo z rodicu (rekurzivne)
+
+nic - package private - pouzitelne ze stejneho balicku
+
+private - pouzitelne jen ze stejne tridy
+
+-------------
+
+metoda getClass - da se dostat k informacim o tride (debugging)
+
+
+-------------
+
+kdyz volam konstruktor bez super, vola se automaticky bezparametricky konstruktor predka
+
+import jen zavadi alias (narozdil od C++ - tam preprocesor nalinkuje knihovnu)
+import nefunguje rekurzivne (nefunguje na podbalicky)
+
+----
+
+interface = abstraktni trida s dalsimi vlastnostmi
+- vsechny metody jsou public abstract, tudiz to tam nemusime psat
+- muzeme dedit jen z jedne tridy, ale z vice interfacu
+
+
+
+----
+DB
+v netbeans: Serivces - Databases - Drivers - Oracle Thin - (RMB) customize
+tam pridat ojdbc.jar ze stranek oracle 
+prihlaseni k oracle.fit.cvut.cz pomoci pocatecniho sys hesla (profile.fit.cvut.cz)
+
+

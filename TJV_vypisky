@@ -76,5 +76,13 @@ OptionalDouble
 
 Semestralka
 - DB s 3 entitami, aspon jeden vztah M:N (tedy celkem 4 tabulky)
+----
+
+aplikacni servery
+kouknout na 
+- EIS 
+- JNDI - jmenna sluzba (abychom na urovni apl. serveru neresili, kam presne se pripojovat, ale odkazovali se jen na nazev pripojeni)
+			- hezky popsane v prezentaci vcetne kodu
+			
 
 

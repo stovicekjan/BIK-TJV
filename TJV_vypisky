@@ -147,7 +147,7 @@ persistence.xml
 	<exclude-unlisted-classes> - vyjmenujeme tridy, ktere nejsou entitni, nebo dame false
 	
 	
-	
+Coding:	
 pro kazdou entitu vytvorime tridu s anotaci @Entity
 entita musi mit primarni klic s anotaci @Id
 entita by mela mit metody equals + hashCode (pocitame oboji z Id)
@@ -157,14 +157,29 @@ ale musiome mit i public konstuerktor bez parametru (povinny)
 
 ManyToMany relace:
 	- jedna z entit ma ridici vztah
-	- jedna ma anotaci @ManyToMany, druha @ManyToMany(mappedBy = "favourites")
+	- jedna ma anotaci @ManyToMany, druha @ManyToMany(mappedBy = "favourites"). Tim se obe strany relace spoji dohromady
+
+na jedne strane vztahu je potreba uvest 
+@JoinTable(
+        name = "TJV_5_SERIE_2_PERSON",
+        joinColumns = @JoinColumn(name = "PID"),
+        inverseJoinColumns = @JoinColumn(name = "SID")
+    )
+
+v NB: New - Entity Classes from DB (v persistence)
+	- vytvori automaticky objekty podle databaze
 
 
+------------------------------------------
+Business Logic
+- functional requirements - toto resi business logika
+- non-functional requirements
 
-a
-
-
-
+EJB - technologie, ktera umi resit BL
+EJB instancuje sam EJB kontejner
+stateful session bean - udrzuje informaci o klientovi
+singleton session bean - jedina instance obsluhuje vsechny requesty pro vsechny klienty
+(blize popsane v ppt)
 
 
 

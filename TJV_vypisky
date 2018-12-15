@@ -182,10 +182,22 @@ singleton session bean - jedina instance obsluhuje vsechny requesty pro vsechny 
 (blize popsane v ppt)
 
 
+--------------------------------------------
+Webove sluzby
 
+SOAP - jedine URL na celou sluzbu. Posilam zpravu, ve ktere rikam, co chci
+		 - hodne standardizovany, pouziva XML
 
+REST - kazdy datovy zdroj ma svuj URL
+ 		 - malo standardizovany
 
+vice o HTTP protokolu: w3.org, RFC
 
+@POST - muze znamenat update, ale i neco mimo CRUD
+spousta browseru umi jenom GET a POST
+
+@Produces({"application/json", MediaType.APPLICATION_XML})
+- pak server rovnou vzgeneruje objekt ve formatu json/xml, podle toho, co klient chce
 
 
 

@@ -1,14 +1,30 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cz.cvut.fit.tjv.cv.tvseries.tvseries.dao;
 
-/**
- *
- * @author stovija5
- */
-public class PersonDao {
+import cz.cvut.fit.tjv.cv.tvseries.tvseries.data.PersonEntity;
+import cz.cvut.fit.tjv.cv.tvseries.tvseries.data.SerieEntity;
+import javax.ejb.Stateless;
+
+@Stateless
+public class PersonDao extends Dao<Integer, PersonEntity> {
+
+    public PersonDao() {
+        super(PersonEntity.class);
+    }
+    
+    @Override
+    protected Integer getEntityId(PersonEntity entity) {
+        return entity.getId();
+    }
+    
+    public void addFavourite(PersonEntity person, SerieEntity serie) {
+        person.getFavourites().add(serie);
+        updateOrCreate(person);
+    }
+    
+    public void removeFavourite(PersonEntity person, SerieEntity serie) {
+        person.getFavourites().remove(serie);
+        updateOrCreate(person);
+    }
+    
     
 }

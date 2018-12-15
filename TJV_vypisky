@@ -91,10 +91,114 @@ Glassfish
 		- databazove pripojeni je drahe - neni idealni byt pripojeny furt (zere to resources serveru)
 		- neni dobre se pripojovat pokazde znova - je to pomale
 		connection pool - mame nekolik volnych spojeni, ktere neuzavreme, ale jen vratime, kdyz ukoncime praci s DB
+- AdKo: spustit Glassfish server (NetBeans - Services - Servers)
+	- NetBeans - Services - Servers - GF - domain admin console
+- vytvorit JNDI:
+	- GF AdKo: 
+				- JDBC - JDBC resources - New - nazev jdbc/something, vybrat connection pool
 		
 ojdbc7.jar je potreba dat do glassfish5/glassfish/domains/domain1/lib
 new connection pool
 - na glassfish: resources - JDBC - JDBC connection pools - New
 ResourceType: javax.sql.DataSource
 Database Driver Vendor: Oracle
+
+
+=================================================================================================
+TJV 14.12.
+=================================================================================================
+
+ORM (object relation mapping)
+relacni databaze casto neumi popsat vsechny vztahy mezi objekty
+proto se pouziva ORM, abychom namapovali objekty na RDB
+
+relacni vazby popsane v PPT vcetne kusu kodu
+
+Entity manager
+4 stavy
+Novy objekt
+Managed
+Removed (je to objekt, ale je odpojeny od DB)
+Detached (je v DB, ale neni objekt)
+
+JPA, za tim je treba Hibernate nebo EclipseLink (soucast Glassfish)
+
+find (ID) - vrati objekt
+kriteria API = parametry, ktere umoznuji definovat dotazy nad daty
+
+JPQL - SQL s objektovymi rysy (pracujeme s objektama, ne s entitami v DB)
+CriteriaQuery - pridava odolnost vuci zmenam v DB
+
+
+persistence unit = tridy + konfigurace
+
+
+vytvorit persistence unit:
+	- NB: new file - persiscence - persistence unit (+vybrat projekt)
+	- persistence provider = knihovna, ktera bude delat ORM (je jedno ktery)
+	- vybrat data source - jdbc/something, co jsme vytvorili
+	- table generation strategy
+			= co aplikace udela pri svem spusteni
+			- create = vytvori objekty, ktere jeste nema
+
+
+
+persistence.xml
+	<exclude-unlisted-classes> - vyjmenujeme tridy, ktere nejsou entitni, nebo dame false
+	
+	
+	
+pro kazdou entitu vytvorime tridu s anotaci @Entity
+entita musi mit primarni klic s anotaci @Id
+entita by mela mit metody equals + hashCode (pocitame oboji z Id)
+potrebujeme gettery a settery na vsechny atributy
+konstruktor pro inicializaci (volitelny)
+ale musiome mit i public konstuerktor bez parametru (povinny)
+
+ManyToMany relace:
+	- jedna z entit ma ridici vztah
+	- jedna ma anotaci @ManyToMany, druha @ManyToMany(mappedBy = "favourites")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

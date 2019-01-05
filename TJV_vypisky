@@ -204,28 +204,88 @@ spousta browseru umi jenom GET a POST
 
 
 
+=================================================================================================
+TJV 5.1.
+=================================================================================================
+
+
+
+@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TJV_5_SEQ")
+@SequenceGenerator(name = "TJV_5_SEQ")
+
+TJV_5_SEQ = jmeno sekvence ve skriptu
+
+java.util.Date - umi datum, cas a timestamp - je treba urcit pomoci anotace @Temporal
+
+
+
+vzor Abstract Facade - ??
+
+@QueryParam("remove") - v url je za otaznikem (.../persons/id?remove=true)
+(na rozdil treba od id, ktere je soucasti url)
+
+Context path = kde aplikace bezi (localhost:8080/tvseries-backend)
+endpoint = platne umisteni (/resources)
+
+logy - v AdKo
+server - view log files
+
+stackoverflow error - nejspis cyklus v DB
+
+
+Entity -> DTO -> JSON/XML
+
+@XmlRootElement - podpora XML
+pro JSON se delat nemusi diky knihovne JSONBinding
+
+----
+DTO mame v jinem projektu nez backend --> musime pridat zavislost
+
+
+AbstractCRUDResource prepiseme na <K, E, D> - pridame DTO
 
 
 
 
 
 
+upravit AbstractCRUDResource, aby pracovala s DTO misto entit
+analogicky upravit i potomky
+	- konstruktor musi volat konstruktora rodice
+
+PersonResource - dela z entity DTO a naopak
+
+Testovani REST sluzeb
+wget, curl
+SOAPUI, Postman
+HTTP Resource Test, RESTer - plugin do prohlizece
+
+PUT metoda - v RESTer nastavit content type
+
+pozor na NPException: PUT person bez favourites:
+d -> new PersonEntity(d.getId(), d.getName(), null ? null : d.getFavourites().stream()
 
 
 
+--------
+REST client
+-------
 
+knihovna jax.rs.client
 
+do pom.xml pridat
+<dependencies>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-web-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope> // tim padem se to pouzije jen pri kompilaci, ale nebude se to pridavat do jar a deployovat na server, protoze uz to tam je
+        </dependency>
+</dependencies>
+    
+    
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+frontend
+Vaadin - v podstate preklad Javy na JS
+	- GWT
+	- 

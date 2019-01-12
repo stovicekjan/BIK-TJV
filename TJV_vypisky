@@ -289,3 +289,33 @@ frontend
 Vaadin - v podstate preklad Javy na JS
 	- GWT
 	- 
+	
+============================================================================
+TJV 12/1/19
+============================================================================
+
+myTheme = jmeno skinu pro webove rozhrani
+myUI = jmeno tridy
+
+
+servlet = trida, ktera umoznuje pro http request generovat odpoved
+
+
+@WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
+- urcuje, kterou URL bude obsluhovat
+
+
+kolekce v jave muze byt read only
+jinak si ji musime sami napsat
+
+
+
+Binder - propojuje nekolik formularovych policek
+dovoluje provadet akce, konverze, validuje
+
+
+seriesGrid.addSelectionListener(event -> {
+	
+});
+
+

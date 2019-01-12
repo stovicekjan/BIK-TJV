@@ -1,6 +1,7 @@
 package cz.cvut.fit.tjv.cv.tvseries.data;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,7 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * Entity class representing the TJV_5_SERIE SQL table.
@@ -22,13 +26,27 @@ public class SerieEntity implements Serializable {
     /** Primary key representing the SID table column. Its value is generated
      * in the underlaying SQL database during any CREATE operation. */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "TJV_5_SEQ")
+    @SequenceGenerator(name = "TJV_5_SEQ", allocationSize = 1)
     @Column(name = "SID")
     private Long id;
     
     /** This represents the STITLE table column */
     @Column(name = "STITLE")
     private String title;
+    
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date added;
+
+    public Date getAdded() {
+        return added;
+    }
+
+    public void setAdded(Date added) {
+        this.added = added;
+    }
+    
+    
     
     /** This represents the M:N association with PersonEntity. Each SerieEntity 
      * may have each PersonEntity associated at most once. The owning side of

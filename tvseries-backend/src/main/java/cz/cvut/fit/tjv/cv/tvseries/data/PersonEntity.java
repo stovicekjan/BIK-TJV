@@ -6,10 +6,12 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -22,7 +24,8 @@ public class PersonEntity implements Serializable {
     /** Primary key representing the PID table column. Its value is generated
      * in the underlaying SQL database during any CREATE operation. */
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TJV_5_SEQ")
+    @SequenceGenerator(name = "TJV_5_SEQ", allocationSize = 1)
     @Column(name = "PID")
     private Long id;
     

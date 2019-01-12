@@ -2,6 +2,7 @@ package cz.cvut.fit.tjv.cv.tvseries.service;
 
 import cz.cvut.fit.tjv.cv.tvseries.dao.Dao;
 import java.util.Collection;
+import java.util.function.Function;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -20,7 +21,16 @@ import javax.ws.rs.core.MediaType;
  * @param <K> Primay key type
  * @param <E> Entity type
  */
-public abstract class AbstractCRUDResource<K, E> {
+public abstract class AbstractCRUDResource<K, E, D> {
+    protected final Function<E, D> entityToDtoConverter;
+    protected final Function<D, E> dtoToEntityConverter;
+
+    public AbstractCRUDResource(Function<E, D> entityToDtoConverter, Function<D, E> dtoToEntityConverter) {
+        this.entityToDtoConverter = entityToDtoConverter;
+        this.dtoToEntityConverter = dtoToEntityConverter;
+    }
+
+    
     
     /**
      * Get instance of JPA controller for particular entity type.
@@ -36,8 +46,8 @@ public abstract class AbstractCRUDResource<K, E> {
     @POST
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public E create(E e) {
-        return getController().create(e);
+    public D create(D e) {
+        return entityToDtoConverter.apply(getController().create(dtoToEntityConverter.apply(e)));
     }
     
     /**
@@ -51,8 +61,8 @@ public abstract class AbstractCRUDResource<K, E> {
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     @Path("/{primaryKey}")
-    public E retrieveById(@PathParam("primaryKey") K id) {
-        return getController().retrieveById(id);
+    public D retrieveById(@PathParam("primaryKey") K id) {
+        return entityToDtoConverter.apply();
     }
     
     /**
@@ -61,7 +71,7 @@ public abstract class AbstractCRUDResource<K, E> {
      */
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public Collection<E> retrieveAll() {
+    public Collection<D> retrieveAll() {
         return getController().retrieveAll();
     }
     

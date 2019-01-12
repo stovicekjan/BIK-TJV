@@ -21,6 +21,13 @@
             <version>8.0</version>
             <scope>provided</scope>
         </dependency>
+        
+        <dependency>
+            <groupId>cz.cvut.fit.tjv.cv.tvseries</groupId>
+            <artifactId>clientview</artifactId>
+            <version>1.1-Snapshot</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <build>
